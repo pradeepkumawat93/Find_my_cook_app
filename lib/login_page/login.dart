@@ -1,7 +1,7 @@
-import 'package:find_my_cook_app/loader/loader.dart';
 import 'package:flutter/material.dart';
-import 'package:find_my_cook_app/Login/bloc.dart';
+import 'package:find_my_cook_app/login_page//bloc.dart';
 import 'package:find_my_cook_app/Cook/main_page.dart';
+//import 'package:find_my_cook_app/loader/loader.dart';
 
 class Login extends StatelessWidget {
   String title;
@@ -81,7 +81,7 @@ class _Login_home_page extends StatelessWidget {
               StreamBuilder<bool>(
                 stream: bloc.submitCheck,
                 builder: (context, snapshot) => RaisedButton(
-                  color: Colors.tealAccent,
+                  color: Colors.green,
                   onPressed: snapshot.hasData
                       ? () => changeThePage(context)
                       : null,
