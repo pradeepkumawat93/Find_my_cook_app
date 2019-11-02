@@ -1,10 +1,9 @@
+import 'package:find_my_cook_app/loader/loader.dart';
 import 'package:flutter/material.dart';
 import 'package:find_my_cook_app/Login/bloc.dart';
 import 'package:find_my_cook_app/Cook/main_page.dart';
 
-
 class Login extends StatelessWidget {
-
   String title;
 
   Login(this.title);
@@ -14,7 +13,7 @@ class Login extends StatelessWidget {
     return MaterialApp(
       home: _Login_home_page(title),
       theme: ThemeData(
-        primarySwatch: Colors.teal,
+        primarySwatch: Colors.green,
       ),
       debugShowCheckedModeBanner: false,
     );
@@ -28,9 +27,9 @@ class _Login_home_page extends StatelessWidget {
         .push(MaterialPageRoute(builder: (context) => Main_page()));
   }
 
-  final String Initial_title;
+  final String title;
 
-  _Login_home_page(this.Initial_title);
+  _Login_home_page(this.title);
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +37,7 @@ class _Login_home_page extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(Initial_title + " login page"),
+        title: Text(title + " login page"),
       ),
       body: SingleChildScrollView(
         child: Container(
