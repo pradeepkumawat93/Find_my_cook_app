@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 String current_cook_image =
     'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg';
 String cook_name = 'vishnu Jangid';
+String cook_native = 'chomu,jaipur,Rajasthan';
 int food_prepared_type = 0; //0(veg),1(non-veg),2(both)
 double rating = 1.5;
 double experince = 2;
@@ -52,16 +53,39 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                   style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'MonteSerrat'),
+                      fontFamily: 'Monteserrat'),
                 ),
                 SizedBox(height: 15.0),
                 Text(
-                  cook_name,
+                  cook_native,
                   style: TextStyle(
                       fontSize: 17.0,
                       fontStyle: FontStyle.italic,
-                      fontFamily: 'MonteSerrat'),
+                      fontFamily: 'Monteserrat'),
                 ),
+                SizedBox(height: 25.0),
+                Container(
+                  height: 30.0,
+                  width: 120.0,
+                  child: Material(
+                    borderRadius: BorderRadius.circular(20.0),
+                    shadowColor: Colors.greenAccent,
+                    color: Colors.green,
+                    elevation: 7.0,
+                    child: GestureDetector(
+                      onTap: () {
+                        //NEED TO UPDATE---------------------------------------------------
+                      },
+                      child: Center(
+                        child: Text(
+                          'Book The Cook',
+                          style: TextStyle(
+                              color: Colors.white, fontFamily: 'Monteserrat'),
+                        ),
+                      ),
+                    ),
+                  ),
+                )
               ],
             ),
           )
@@ -85,5 +109,14 @@ class getClipper extends CustomClipper<Path> {
   bool shouldReclip(CustomClipper<Path> oldClipper) {
     // TODO: implement shouldReclip
     return true;
+  }
+}
+
+class Dot extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+
+    );
   }
 }
