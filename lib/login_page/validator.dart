@@ -7,7 +7,7 @@ mixin Validators{
         if(email.contains("@") && email.contains(".")){
           sink.add(email);
         }else{
-          sink.addError("Email is not valid");
+          sink.addError("Email should contain . and @ ");
         }
       }
   );
@@ -17,7 +17,7 @@ mixin Validators{
         if(password.length>4){
           sink.add(password);
         }else{
-          sink.addError("Password length should be greater than 4 chars.");
+          sink.addError("Password length should be greater than 4 chars");
         }
       }
   );

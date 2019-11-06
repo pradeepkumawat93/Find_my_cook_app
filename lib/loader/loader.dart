@@ -11,7 +11,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
   Animation<double> animation_radius_in;
   Animation<double> animation_radius_out;
 
-  final double InitialRadius = 15.0;
+  final double InitialRadius = 25.0;
 
   double radius = 0.0;
 
@@ -66,13 +66,13 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
           child: Stack(
             children: <Widget>[
               Dot(
-                radius: 15.0,
+                radius: 30.0,
                 color: Colors.black12,
               ),
               Transform.translate(
                 offset: Offset(radius * cos(pi / 4), radius * sin(pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.red,
                 ),
               ),
@@ -80,7 +80,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(2 * pi / 4), radius * sin(2 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.blue,
                 ),
               ),
@@ -88,7 +88,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(3 * pi / 4), radius * sin(3 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.green,
                 ),
               ),
@@ -96,7 +96,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(4 * pi / 4), radius * sin(4 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.yellow,
                 ),
               ),
@@ -104,7 +104,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(5 * pi / 4), radius * sin(5 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.purple,
                 ),
               ),
@@ -112,7 +112,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(6 * pi / 4), radius * sin(6 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.black,
                 ),
               ),
@@ -120,7 +120,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(7 * pi / 4), radius * sin(7 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.orange,
                 ),
               ),
@@ -128,7 +128,7 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
                 offset:
                     Offset(radius * cos(8 * pi / 4), radius * sin(8 * pi / 4)),
                 child: Dot(
-                  radius: 5.0,
+                  radius: 10.0,
                   color: Colors.teal,
                 ),
               ),
