@@ -29,7 +29,7 @@ class Coock_list extends StatefulWidget {
 
 class _Coock_listState extends State<Coock_list> {
   Future<List<CoockBasicList>> _getCookList() async {
-    var data = await http.get("http://localhost:3000/coock_list");
+    var data = await http.get("https://github.com/pradeepkumawat93/Find_my_cook_app/blob/master/lib/Utils/json_data/db.json");
     var jsondata = json.decode(data.body);
     List<CoockBasicList> cooklist = [];
     for (var u in jsondata) {
