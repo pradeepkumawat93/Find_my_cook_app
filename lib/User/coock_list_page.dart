@@ -29,14 +29,18 @@ class Coock_list extends StatefulWidget {
 
 class _Coock_listState extends State<Coock_list> {
   Future<List<CoockBasicList>> _getCookList() async {
-    var data = await http.get("https://github.com/pradeepkumawat93/Find_my_cook_app/blob/master/lib/Utils/json_data/db.json");
+    print("Starting....");
+    var data = await http.get("http://192.168.0.106:3000/api");
     var jsondata = json.decode(data.body);
+    print("Loaded....");
     List<CoockBasicList> cooklist = [];
-    for (var u in jsondata) {
+    for (var u in jsondata["data"]) {
+      print("u['index']");
       CoockBasicList cook = CoockBasicList(
           u['index'], u['about'], u['name'], u['email'], u['picture']);
       cooklist.add(cook);
     }
+    print("end....");
 
     return cooklist;
   }
@@ -54,7 +58,7 @@ class _Coock_listState extends State<Coock_list> {
             if (snapshot.data == null) {
               return Center(
                   child: Container(
-                child: Text("Loading..."), //Loader(),
+                child: Loader(),
               ));
             } else {
               return ListView.builder(
