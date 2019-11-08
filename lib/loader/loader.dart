@@ -1,5 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:find_my_cook_app/Utils/common.dart';
 
 class Loader extends StatefulWidget {
   _LoState createState() => _LoState();
@@ -135,24 +136,6 @@ class _LoState extends State<Loader> with SingleTickerProviderStateMixin {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class Dot extends StatelessWidget {
-  final double radius;
-  final Color color;
-
-  Dot({this.radius, this.color});
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        width: this.radius,
-        height: this.radius,
-        decoration: BoxDecoration(color: this.color, shape: BoxShape.circle),
       ),
     );
   }

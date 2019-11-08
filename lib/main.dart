@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:find_my_cook_app/login_page/login.dart';
 //import 'package:find_my_cook_app/loader/loader.dart';
 import 'package:find_my_cook_app/User/coock_list_page.dart';
+import 'package:find_my_cook_app/Cook/profile_page_for_user.dart';
 
 void main() => runApp(MyApp());
 
@@ -16,6 +17,7 @@ class MyApp extends StatelessWidget {
       ),
       //home:Login("coock"),
       home: Coock_list(),
+      //home: ProfilePageForUser(),
     );
   }
 }

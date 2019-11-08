@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:find_my_cook_app/loader/loader.dart';
-import 'dart:async';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
+import 'package:find_my_cook_app/Utils/common.dart';
+import 'package:find_my_cook_app/Utils/common_structure.dart';
+import 'package:find_my_cook_app/Utils/future_common_func.dart';
 
 class cook_list_main extends StatelessWidget {
   @override
@@ -28,32 +29,17 @@ class Coock_list extends StatefulWidget {
 }
 
 class _Coock_listState extends State<Coock_list> {
-  Future<List<CoockBasicList>> _getCookList() async {
-    print("Starting....");
-    var data = await http.get("http://192.168.0.106:3000/api");
-    var jsondata = json.decode(data.body);
-    print("Loaded....");
-    List<CoockBasicList> cooklist = [];
-    for (var u in jsondata["data"]) {
-      print("u['index']");
-      CoockBasicList cook = CoockBasicList(
-          u['index'], u['about'], u['name'], u['email'], u['picture']);
-      cooklist.add(cook);
-    }
-    print("end....");
-
-    return cooklist;
-  }
+  String api_UserToCoockFirstList = "http://192.168.0.106:3000/api";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: new Text(""),
+        title: new Text("buddy List"),
       ),
       body: Container(
         child: FutureBuilder(
-          future: _getCookList(),
+          future: getUserToCoockFirstList(api_UserToCoockFirstList),
           builder: (BuildContext context, AsyncSnapshot snapshot) {
             if (snapshot.data == null) {
               return Center(
@@ -66,8 +52,7 @@ class _Coock_listState extends State<Coock_list> {
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
                     leading: CircleAvatar(
-                      backgroundImage:
-                          NetworkImage(snapshot.data[index].picture),
+                      backgroundImage: NetworkImage(snapshot.data[index].pic),
                     ),
                     title: Text(snapshot.data[index].name),
                     subtitle: Text(snapshot.data[index].email),
@@ -89,18 +74,8 @@ class _Coock_listState extends State<Coock_list> {
   }
 }
 
-class CoockBasicList {
-  final String index;
-  final String about;
-  final String name;
-  final String email;
-  final String picture;
-
-  CoockBasicList(this.index, this.about, this.name, this.email, this.picture);
-}
-
 class DetailedPage extends StatelessWidget {
-  final CoockBasicList cookData;
+  final UserToCoockFirstList cookData;
 
   DetailedPage(this.cookData);
 

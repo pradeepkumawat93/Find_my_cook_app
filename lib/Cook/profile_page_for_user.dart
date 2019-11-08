@@ -1,15 +1,15 @@
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:find_my_cook_app/loader/loader.dart';
+import 'package:find_my_cook_app/Utils/common.dart';
 
-String current_cook_image =
+String pic =
     'https://pixel.nymag.com/imgs/daily/vulture/2017/06/14/14-tom-cruise.w700.h700.jpg';
-String cook_name = 'vishnu Jangid';
-String cook_native = 'chomu, jaipur, Rajasthan';
-int food_prepared_type = 2; //0(veg),1(non-veg),2(both)
-double coock_rating = 3.5;
-double experince = 2;
-int no_person_rating_given = 121;
+String name = 'vishnu Jangid';
+String address = 'chomu, jaipur, Rajasthan';
+int tofp = 2; //0(veg),1(non-veg),2(both)
+double rating = 3.5;
+double exp = 2;
+int rgbuis = 121;
 
 class ProfilePageForUser extends StatefulWidget {
   @override
@@ -18,52 +18,6 @@ class ProfilePageForUser extends StatefulWidget {
 
 class _ProfilePageForUserState extends State<ProfilePageForUser> {
   double rating = 3.5;
-
-  @override
-  Container get_food_color_dot(var v) {
-    if (food_prepared_type == 0) {
-      return new Container(
-        child: new Row(
-          children: <Widget>[
-            new Text("food prepare  "),
-            new Dot(
-              radius: 12.0,
-              color: Colors.green,
-            )
-          ],
-        ),
-      );
-    } else if (food_prepared_type == 1) {
-      return new Container(
-        child: new Row(
-          children: <Widget>[
-            new Text("food prepare "),
-            new Dot(
-              radius: 12.0,
-              color: Colors.red,
-            )
-          ],
-        ),
-      );
-    } else {
-      return new Container(
-        child: new Row(
-          children: <Widget>[
-            new Text("food prepare "),
-            new Dot(
-              radius: 10.0,
-              color: Colors.green,
-            ),
-            new Text("  "),
-            new Dot(
-              radius: 10.0,
-              color: Colors.red,
-            )
-          ],
-        ),
-      );
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +42,7 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                   decoration: BoxDecoration(
                       color: Colors.red,
                       image: DecorationImage(
-                          image: NetworkImage(current_cook_image),
+                          image: NetworkImage(pic),
                           fit: BoxFit.cover),
                       borderRadius: BorderRadius.all(Radius.circular(75.0)),
                       boxShadow: [
@@ -97,7 +51,7 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                 ),
                 SizedBox(height: 70.0),
                 Text(
-                  cook_name,
+                  name,
                   style: TextStyle(
                       fontSize: 30.0,
                       fontWeight: FontWeight.bold,
@@ -105,7 +59,7 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                 ),
                 SizedBox(height: 15.0),
                 Text(
-                  cook_native,
+                  address,
                   style: TextStyle(
                       fontSize: 17.0,
                       fontStyle: FontStyle.italic,
@@ -115,14 +69,14 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                 new Container(
                   height: 30.0,
                   width: 120.0,
-                  child: get_food_color_dot(food_prepared_type),
+                  child: getTypeOfFoodColorDot(tofp, 12.0),
                 ),
                 new Container(
                   height: 30.0,
                   width: 120.0,
                   child: new Center(
                     child: new Text(
-                      (experince.toString() + " Year"),
+                      (exp.toString() + " Year"),
                       style: TextStyle(
                           fontFamily: 'Montserrat',
                           fontSize: 17.0,
@@ -136,7 +90,7 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                     height: 30.0,
                     width: 120.0,
                     child: new StarRating(
-                      rating: coock_rating,
+                      rating: rating,
                       onRatingChanged: (rating) =>
                           setState(() => this.rating = rating),
                     ),
@@ -152,7 +106,7 @@ class _ProfilePageForUserState extends State<ProfilePageForUser> {
                           icon: Icon(Icons.mood),
                           color: Colors.green,
                         ),
-                        new Text(no_person_rating_given.toString(),
+                        new Text(rgbuis.toString(),
                             style: TextStyle(
                                 decoration: TextDecoration.none,
                                 fontSize: 17.0)),
